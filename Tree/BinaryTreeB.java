@@ -289,6 +289,22 @@ public static void preorder(Node root)
     preorder(root.left);
     preorder(root.right);
 }
+public static boolean univalued(Node root)
+{
+    if(root == null)
+    {
+        return true;
+    }
+    if(root.left!= null && root.data!= root.left.data)
+    {
+        return false;
+    }
+    if(root.right!= null && root.data != root.right.data)
+    {
+        return false;
+    }
+    return univalued(root.left) && univalued(root.right);
+}
 
 
     public static void main(String args[]){
@@ -352,8 +368,9 @@ public static void preorder(Node root)
         // System.out.println(minDist(root,n1,n2));
         // int n=6, k=1;
         // KthAncesstor(root, n, k);
-        transform(root);
-        preorder(root);
+        // transform(root);
+        // preorder(root);
+        System.out.println(univalued(root));
         
 
 
